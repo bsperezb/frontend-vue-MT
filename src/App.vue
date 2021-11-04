@@ -11,14 +11,17 @@
         <button v-if="is_auth" v-on:click="loadHome"> Inicio </button>
         <button v-if="is_auth" v-on:click="logOut">Cerrar Sesión</button>
         <button v-if="is_auth" v-on:click="loadAccount"> Cuenta </button>
+        <button v-if="is_auth" v-on:click="createProduct"> Crear producto </button>
+        <button v-if="!is_auth" v-on:click="createProduct"> Crear producto </button>
       </nav>
     </div>
 
     <div class="main-component">
-      <router-view
+      <router-view  
         v-on:completedLogIn="completedLogIn"
         v-on:completedSignUp="completedSignUp"
         v-on:logOut="logOut"
+        v-on:createProduct="createProduct"
       >
       </router-view>
     </div>
@@ -39,6 +42,9 @@ export default {
   },
   components: {},
   methods: {
+    createProduct: function(){
+      this.$router.push({ name:"create"})
+    },
     loadAccount: function () {
       this.$router.push({ name: "account" });
     },
@@ -81,6 +87,11 @@ export default {
 <style>
 body {
   margin: 0 0 0 0;
+}
+.main-component{
+  display:flex;
+  justify-content: center;
+  min-height: 80vh;
 }
 .header {
   margin: 0%;
