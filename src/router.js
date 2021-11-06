@@ -5,6 +5,7 @@ import SignUp from "./components/SignUp.vue";
 import Home from './components/Home.vue'
 import Account from './components/Account.vue'
 import Form from './components/Form.vue'
+import List from './components/List.vue'
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
   path: '/product/create',
   name: "create",
   component: Form,
+  },
+  {
+    path: '/product/list',
+    name: "list",
+    component: List,
   }
 ];
 const router = createRouter({
