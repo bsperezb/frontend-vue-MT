@@ -4,6 +4,7 @@ import LogIn from "./components/LogIn.vue";
 import SignUp from "./components/SignUp.vue";
 import Home from './components/Home.vue'
 import Account from './components/Account.vue'
+import Form from './components/Form.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
   path: '/user/account',
   name: "account",
   component: Account,
+  },
+  {
+  path: '/product/create',
+  name: "create",
+  component: Form,
   }
 ];
 const router = createRouter({
