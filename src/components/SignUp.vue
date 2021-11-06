@@ -80,7 +80,7 @@ justify-content: center;
 align-items: center;
 }
 .container_signUp_user {
-border: 3px solid #283747;
+border: 3px solid #057d81;
 border-radius: 10px;
 width: 25%;
 height: 60%;
@@ -104,14 +104,14 @@ width: 100%;
 box-sizing: border-box;
 padding: 10px 20px;
 margin: 5px 0;
-border: 1px solid #283747;
+border: 1px solid #057d81;
 }
 .signUp_user button
 {
 width: 100%;
 height: 40px;
 color: #E5E7E9;
-background: #283747;
+background: #057d81;
 border: 1px solid #E5E7E9;
 border-radius: 5px;
 padding: 10px 25px;
@@ -121,6 +121,6 @@ margin: 5px 0 25px 0;
 {
 color: #E5E7E9;
 background: crimson;
-border: 1px solid #283747;
+border: 1px solid #057d81;
 }
 </style>

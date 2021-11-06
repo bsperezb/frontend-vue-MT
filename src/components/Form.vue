@@ -37,7 +37,7 @@
     </div>
   </div>
   <div class="row justify-content-center">
-  <button type="submit" class="btn btn-primary font-weight-bold ">Enviar</button>
+  <button type="submit" class="btn btn-primary font-weight-bold" style="background-color: #057d81; color: #e5e7e9; border: 1px solid #e5e7e9">Enviar</button>
   </div>
 </form>
 <!-- end boostrap -->
