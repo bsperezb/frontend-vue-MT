@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
     <div class="header">
-      <h1>Banco UN</h1>
+      <h1>Artes Iraca</h1>
       <nav>
         <!-- <button v-if="is_auth">Inicio</button>
         <button v-if="is_auth">Cuenta</button>
@@ -13,6 +13,8 @@
         <button v-if="is_auth" v-on:click="loadAccount"> Cuenta </button>
         <button v-if="is_auth" v-on:click="createProduct"> Crear producto </button>
         <button v-if="!is_auth" v-on:click="createProduct"> Crear producto </button>
+        <button v-if="is_auth" v-on:click="listProduct"> Listar producto </button>
+        <button v-if="!is_auth" v-on:click="listProduct"> Listar producto </button>
       </nav>
     </div>
 
@@ -42,6 +44,9 @@ export default {
   },
   components: {},
   methods: {
+    listProduct: function(){
+      this.$router.push({ name:"list"})
+    },
     createProduct: function(){
       this.$router.push({ name:"create"})
     },
@@ -99,7 +104,7 @@ body {
   width: 100%;
   height: 10vh;
   min-height: 100px;
-  background-color: #283747;
+  background-color: #057d81;
   color: #e5e7e9;
   display: flex;
   justify-content : space -between;
@@ -120,17 +125,16 @@ body {
 }
 .header nav button {
   color: #e5e7e9;
-  background: #283747;
+  background: #057d81;
 
   border: 1px solid #e5e7e9;
 
-  border-radius
-: 5px;
+  border-radius: 5px;
 
   padding: 10px 20px;
 }
 .header nav button:hover {
-  color: #283747;
+  color: #057d81;
   background: #e5e7e9;
 
   border: 1px solid #e5e7e9;
@@ -147,7 +151,7 @@ body {
   width: 100%;
   height: 10vh;
   min-height: 100px;
-  background-color: #283747;
+  background-color: #057d81;
   color: #e5e7e9;
 }
 .footer h2 {
