@@ -27,10 +27,25 @@
       >
       </router-view>
     </div>
-
+    <!-- 
     <div class="footer">
       <h2>Misión TIC 2022</h2>
     </div>
+    -->
+    <footer>
+      <div class="footer-content">
+        <h3>Misión TIC 2022</h3>
+        <ul class="socials">
+         <li><p>Back-end <a href="https://github.com/bsperezb/Ecomerce_Rocket_team.git" target="blank_"><i class="fa fa-github"></i></a></p></li>
+         <li><p>Front-end <a href="https://github.com/bsperezb/frontend-vue-MT.git" target="blank_"><i class="fa fa-github"></i></a></p></li>
+        
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>copyright &copy;2020 codeOpacity. designed by <span>nethunt</span></p>
+      </div>
+    </footer>
+
   </div>
 </template>
 
@@ -145,20 +160,72 @@ body {
   padding: 0%;
   background: #fdfefe;
 }
-.footer {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 10vh;
-  min-height: 100px;
-  background-color: #057d81;
-  color: #e5e7e9;
+footer{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #026b6d;
+    height: auto;
+    width: 100vw;
+    font-family: "Open Sans";
+    padding-top: 40px;
+    color: #fff;
 }
-.footer h2 {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+.footer-bottom{
+    background: #000000;
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
 }
 </style>
