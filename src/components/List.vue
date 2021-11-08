@@ -1,4 +1,6 @@
 <template>
+
+
     <div class="container-fluid my-5">
          <!--<div class="row  justify-content-center " >-->
            <table class="table table-striped">
@@ -31,6 +33,7 @@
                     </td>
                     </tr>
 
+
                     <tr class="items" v-for="arte in items" :key="arte.id">
                     <th scope="row">
                         <img :src="arte.image"
@@ -40,6 +43,7 @@
                     <td>{{ arte.name }}</td>
                     <td>{{ arte.price }}</td>
                     <td>{{ arte.state }}</td>
+
                     <td>
                         <div class="Butt_Delete">
                             <button type="submit">Eliminar</button>
@@ -55,6 +59,7 @@
     <!--</div>-->
   
 </template>
+
 <script>
 import axios from "axios";
 export default {
@@ -92,6 +97,7 @@ export default {
 }
 </script>
 
+
 <style>
 .Butt_Delete button {
   width: 35%;
@@ -123,4 +129,6 @@ export default {
   background: #53b664;
   border: 1px solid #141616;
 }
+
 </style>
+
