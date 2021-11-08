@@ -46,7 +46,7 @@
 
                     <td>
                         <div class="Butt_Delete">
-                            <button type="submit">Eliminar</button>
+                            <button v-on:click="eliminar_item( arte )">Eliminar</button>
                         </div>
                         <div class="Butt_Edit">
                             <button type="submit">Editar</button>
@@ -81,15 +81,33 @@ export default {
       axios(config)
         .then(function (response){
           vue.items = response.data;
-          console.log(vue.items)
+          // console.log(vue.items)
         })
         .catch(function(error){
           console.log(error);
         });
     },
-    eliminar_items: ()=>{
+    // eliminar_items: ()=>{
 
-    }
+    // },
+    eliminar_item: function(item){
+      console.log( item.id)
+      var url = 'https://bcend.herokuapp.com/products/products/'+item.id+'/'
+      console.log("esta es la url" +" "+ url)
+      var config = {
+        method: 'delete',
+        url: url,
+        headers: {'Content-Type': 'application/json'},
+      };
+      axios(config)
+      .then(function(response){
+        console.log(response)
+        alert(item.name + " " +"eliminada")
+      })
+        .catch(function(error){
+          console.log(error);
+        });
+    },
   },
   mounted(){
     this.traer_items();
