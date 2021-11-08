@@ -62,24 +62,14 @@ export default {
     };
   },
   methods: {
+    success: function() {
+      alert('success');
+    },
+    error: function() {
+      alert('Please verufy the item data');
+    },
     create_item: function() {
-      // axios.post("https://ciclo3-api-backend.herokuapp.com/login/", this.item, {
-      //     headers: {},
-      //   })
-      //   .then((result) => {
-      //     let dataLogIn = {
-      //       username: this.user.username,
-      //       token_access: result.data.access,
-      //       token_refresh: result.data.refresh,
-      //     };
-
-      //     this.$emit("completedLogIn", dataLogIn);
-      //   })
-      //   .catch((error) => {
-      //     if (error.response.status == "401")
-      //       alert("ERROR 401: Credenciales Incorrectas.");
-      //   });
-      // var axios = require('axios')
+      let vue = this;
       var data = this.item;
       var config = {
         method: 'post',
@@ -88,14 +78,22 @@ export default {
         data : data
       };
       console.log(this.item)
-      
       axios(config)
         .then(function (response){
           console.log(JSON.stringify(response.data));
           console.log('enviado')
+        this.success()
+          vue.item =  {
+          name: "",
+          state: "",
+          price: "",
+          description: "",
+          image: "",
+        };
         })
         .catch(function(error){
           console.log(error);
+        this.error()
         });
     },
   },

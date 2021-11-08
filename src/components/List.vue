@@ -1,5 +1,6 @@
 <template>
-    
+
+
     <div class="container-fluid my-5">
          <!--<div class="row  justify-content-center " >-->
            <table class="table table-striped">
@@ -31,51 +32,18 @@
                         </div>
                     </td>
                     </tr>
-                    <tr>
+
+
+                    <tr class="items" v-for="arte in items" :key="arte.id">
                     <th scope="row">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSahkFNyy-omUBhH_y4iKxG5KRWwRVvmKSw6A&usqp=CAU"
-                            width="130"
+                        <img :src="arte.image"
+                            width="100"
                             height="85">
                     </th>
-                    <td>Aretes</td>
-                    <td>30.000</td>
-                    <td>Disponible</td>
-                    <td>
-                       <div class="Butt_Delete">
-                            <button type="submit">Eliminar</button>
-                        </div>
-                        <div class="Butt_Edit">
-                            <button type="submit">Editar</button>
-                        </div>    
-                    </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF0m65fhhPZqBEzSfWoZwEVBRAICfizeiVgA&usqp=CAU"
-                            width="150"
-                            height="85">
-                    </th>
-                    <td>Sombrero</td>
-                    <td>60.000</td>
-                    <td>No Disponible</td>
-                    <td>
-                        <div class="Butt_Delete">
-                            <button type="submit">Eliminar</button>
-                        </div>
-                        <div class="Butt_Edit">
-                            <button type="submit">Editar</button>
-                        </div>
-                    </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9oBZaHTdjLw0y8EM4dDxPvQb0zJ7US9XBkQ&usqp=CAU"
-                            width="85"
-                            height="85">
-                    </th>
-                    <td>Collar</td>
-                    <td>30.000</td>
-                    <td>Disponible</td>
+                    <td>{{ arte.name }}</td>
+                    <td>{{ arte.price }}</td>
+                    <td>{{ arte.state }}</td>
+
                     <td>
                         <div class="Butt_Delete">
                             <button type="submit">Eliminar</button>
@@ -91,6 +59,44 @@
     <!--</div>-->
   
 </template>
+
+<script>
+import axios from "axios";
+export default {
+  name: "Form",
+  data: function() {
+    return {
+      items:[],
+    };
+  },
+  methods: {
+    traer_items: function() {
+      let vue = this;
+    //   var data = this.item;
+      var config = {
+        method: 'get',
+        url: 'https://bcend.herokuapp.com/products/products/',
+        headers: {'Content-Type': 'application/json'},
+      };
+      axios(config)
+        .then(function (response){
+          vue.items = response.data;
+          console.log(vue.items)
+        })
+        .catch(function(error){
+          console.log(error);
+        });
+    },
+    eliminar_items: ()=>{
+
+    }
+  },
+  mounted(){
+    this.traer_items();
+  },
+}
+</script>
+
 
 <style>
 .Butt_Delete button {
@@ -123,4 +129,6 @@
   background: #53b664;
   border: 1px solid #141616;
 }
+
 </style>
+
