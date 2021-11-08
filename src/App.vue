@@ -162,11 +162,13 @@ body {
 }
 footer{
     bottom: 0;
+    margin:0;
+    padding:0;
     left: 0;
     right: 0;
     background: #026b6d;
     height: auto;
-    width: 100vw;
+    width: 100%;
     font-family: "Open Sans";
     padding-top: 40px;
     color: #fff;
@@ -214,7 +216,7 @@ footer{
 }
 .footer-bottom{
     background: #000000;
-    width: 100vw;
+    width: 100%;
     padding: 20px 0;
     text-align: center;
 }
