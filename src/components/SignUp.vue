@@ -3,23 +3,37 @@
     <div class="container_signUp_user">
       <h2>Registrarse</h2>
       <form v-on:submit.prevent="processSignUp">
+    <div class = "form-row">
+      <div class = "form-group col-md-6">    
+        <label for = "inputEmail4">Usuario</label>
         <input type="text" v-model="user.username" placeholder="Username" />
-        <br />
-        <input type="password" v-model="user.password" placeholder="Password" />
-        <br />
+      </div>
+    <div class = "form-group col-md-6">
+      <label for = "inputAddress">Password</label>
+      <input type="password" v-model="user.password" placeholder="Password" />
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Nombre</label>
         <input type="text" v-model="user.name" placeholder="Name" />
-        <br />
+    </div>
+    <div class = "form-group col-md-6">    
+        <label for = "inputEmail4">Usuario</label>
         <input type="email" v-model="user.email" placeholder="Email" />
-        <br />
-
+    </div>
+    <div class = "form-group col-md-6">    
+        <label for = "inputEmail4">Balance</label>
         <input
           type="number"
           v-model="user.account.balance"
           placeholder="Initial Balance"
         />
-
-        <br />
-        <button type="submit">Registrarse</button>
+      </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+    <button type="submit">Registrarse</button>
+    </div>
       </form>
     </div>
   </div>
@@ -71,23 +85,24 @@ export default {
 </script>
 <style >
 .signUp_user{
-margin: 0;
-padding: 0%;
+margin: 10;
+padding: 5%;
 height: 100%;
-width: 100%;
+width: 300%;
 display: flex;
 justify-content: center;
 align-items: center;
 }
 .container_signUp_user {
-border: 3px solid #057d81;
+border: 1px solid #057d81;
 border-radius: 10px;
-width: 25%;
+width: 50%;
 height: 60%;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+box-shadow: 0 1px 30px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .signUp_user h2
 {

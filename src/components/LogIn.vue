@@ -3,11 +3,19 @@
     <div class="container_logIn_user">
       <h2>Iniciar sesión</h2>
       <form v-on:submit.prevent="processLogInUser">
+    <div class = "form-row">
+      <div class = "form-group col-md-6">
+        <label for = "inputEmail4">Email</label>
         <input type="text" v-model="user.username" placeholder="Username" />
-        <br />
-        <input type="password" v-model="user.password" placeholder="Password" />
-        <br />
+      </div>
+    <div class = "form-group col-md-6">
+      <label for = "inputAddress">Password</label>      
+      <input type="password" v-model="user.password" placeholder="Password" />
+          </div>
+        </div>
+        <div class="row justify-content-center">
         <button type="submit">Iniciar Sesion</button>
+        </div>
       </form>
     </div>
   </div>
@@ -51,7 +59,7 @@ export default {
 <style>
 .logIn_user {
   margin: 0;
-  padding: 0%;
+  padding: 10%;
   height: 100%;
   width: 100%;
   display: flex;
@@ -59,14 +67,15 @@ export default {
   align-items: center;
 }
 .container_logIn_user {
-  border: 3px solid #057d81;
+  border: 1px solid #057d81;
   border-radius: 10px;
-  width: 25%;
-  height: 60%;
+  width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 1px 30px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .logIn_user h2 {
   color: #057d81;
