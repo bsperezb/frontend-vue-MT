@@ -1,6 +1,6 @@
 <template>
   <div class="signUp_user">
-    <div class="container_signUp_user">
+    <div class="container_signUp_user py-3">
       <h2>Registrarse</h2>
       <form v-on:submit.prevent="processSignUp">
     <div class = "form-row">
