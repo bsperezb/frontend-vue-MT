@@ -1,6 +1,6 @@
 <template>
   <div class="logIn_user">
-    <div class="container_logIn_user">
+    <div class="container_logIn_user py-3">
       <h2>Iniciar sesión</h2>
       <form v-on:submit.prevent="processLogInUser">
     <div class = "form-row">

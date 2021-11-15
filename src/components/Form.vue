@@ -70,14 +70,14 @@ export default {
     },
     create_item: function() {
       let vue = this;
-      var data = this.item;
+      var data = vue.item;
       var config = {
         method: 'post',
         url: 'https://bcend.herokuapp.com/products/products/',
         headers: {'Content-Type': 'application/json'},
         data : data
       };
-      console.log(this.item)
+      console.log(vue.item)
       axios(config)
         .then(function (response){
           console.log(JSON.stringify(response.data));
@@ -93,7 +93,7 @@ export default {
         })
         .catch(function(error){
           console.log(error);
-        this.error()
+          vue.error()
         });
     },
   },
