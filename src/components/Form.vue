@@ -82,7 +82,7 @@ export default {
         .then(function (response){
           console.log(JSON.stringify(response.data));
           console.log('enviado')
-        this.success()
+        vue.success()
           vue.item =  {
           name: "",
           state: "",
