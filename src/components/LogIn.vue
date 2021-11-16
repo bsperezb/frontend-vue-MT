@@ -5,7 +5,7 @@
       <form v-on:submit.prevent="processLogInUser">
     <div class = "form-row">
       <div class = "form-group col-md-6">
-        <label for = "inputEmail4">Email</label>
+        <label for = "inputEmail4">Nombre de usuario</label>
         <input type="text" v-model="user.username" placeholder="Username" />
       </div>
     <div class = "form-group col-md-6">
@@ -36,7 +36,7 @@ export default {
     processLogInUser: function() {
       axios
         // .post("https://mision-tic-bank-be.herokuapp.com/login/", this.user, {
-        .post("https://ciclo3-api-backend.herokuapp.com/login/", this.user, {
+        .post("https://bcend.herokuapp.com/login/", this.user, {
           headers: {},
         })
         .then((result) => {

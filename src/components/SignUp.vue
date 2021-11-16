@@ -8,20 +8,20 @@
         <label for = "inputEmail4">Usuario</label>
         <input type="text" v-model="user.username" placeholder="Username" />
       </div>
-    <div class = "form-group col-md-6">
-      <label for = "inputAddress">Password</label>
-      <input type="password" v-model="user.password" placeholder="Password" />
-    </div>
-    <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Nombre</label>
-        <input type="text" v-model="user.name" placeholder="Name" />
-    </div>
-    <div class = "form-group col-md-6">    
-        <label for = "inputEmail4">Email</label>
-        <input type="email" v-model="user.email" placeholder="Email" />
-    </div>
-    <!-- <div class = "form-group col-md-6">    
+      <div class = "form-group col-md-6">
+        <label for = "inputAddress">Password</label>
+        <input type="password" v-model="user.password" placeholder="Password" />
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Nombre</label>
+          <input type="text" v-model="user.name" placeholder="Name" />
+        </div>
+        <div class = "form-group col-md-6">    
+          <label for = "inputEmail4">Email</label>
+          <input type="email" v-model="user.email" placeholder="Email" />
+        </div>
+            <!-- <div class = "form-group col-md-6">    
         <label for = "inputEmail4">Balance</label>
         <input
           type="number"
@@ -29,6 +29,7 @@
           placeholder="Initial Balance"
         />
       </div> -->
+
       </div>
     </div>
     <div class="row justify-content-center">
@@ -60,9 +61,10 @@ export default {
   },
   methods: {
     processSignUp: function() {
+      console.log(this.user)
       axios
         // .post("https://mision-tic-bank-be.herokuapp.com/user/", this.user, {
-        .post("https://ciclo3-api-backend.herokuapp.com/user/", this.user, {
+        .post("https://bcend.herokuapp.com/user/", this.user, {
           headers: {},
         })
         .then((result) => {
