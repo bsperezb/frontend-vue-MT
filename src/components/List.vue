@@ -24,11 +24,11 @@
                     <td>50.000</td>
                     <td>Disponible</td>
                     <td>
-                        <div class="Butt_Delete">
+                        <div v-if="is_auth" class="Butt_Delete">
                             <button type="submit">Eliminar</button>
                         </div>
-                        <div class="Butt_Edit">
-                            <button type="submit">Editar</button>
+                        <div v-if="is_auth" class="Butt_Edit">
+                            <button  type="submit">Editar</button>
                         </div>
                     </td>
                     </tr>
@@ -46,10 +46,10 @@
 
                     <td>
                         <div class="Butt_Delete">
-                            <button v-on:click="eliminar_item( arte )">Eliminar</button>
+                            <button v-if="is_auth"  v-on:click="eliminar_item( arte )">Eliminar</button>
                         </div>
                         <div class="Butt_Edit">
-                            <button type="submit">Editar</button>
+                            <button v-if="is_auth" type="submit">Editar</button>
                         </div>
                     </td>
                     </tr>
@@ -67,9 +67,13 @@ export default {
   data: function() {
     return {
       items:[],
+      is_auth:false,
     };
   },
   methods: {
+    verifyAuth: function() {
+      this.is_auth = localStorage.getItem("isAuth") || false;
+    },
     traer_items: function() {
       let vue = this;
     //   var data = this.item;
@@ -81,7 +85,7 @@ export default {
       axios(config)
         .then(function (response){
           vue.items = response.data;
-          // console.log(vue.items)
+          console.log(vue.items)
         })
         .catch(function(error){
           console.log(error);
@@ -110,6 +114,7 @@ export default {
     },
   },
   mounted(){
+    this.verifyAuth();
     this.traer_items();
   },
 }

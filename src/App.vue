@@ -1,22 +1,54 @@
 <template>
   <div id="app" class="app">
-    <div class="header">
-      <h1>Artes Iraca</h1>
-      <nav>
+    <b-navbar class="navbar navbar-expand-md navbar-dark bg-dark" >
+        <a class="navbar-brand" href="#">Artes Iraca</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
         <!-- <button v-if="is_auth">Inicio</button>
         <button v-if="is_auth">Cuenta</button>
         <button v-if="is_auth">Cerrar Sesión</button> -->
-        <button v-if="!is_auth" v-on:click="loadLogIn">Iniciar Sesión</button>
-        <button v-if="!is_auth" v-on:click="loadSignUp">Registrarse</button>
+        
+        <!--<button v-if="!is_auth" v-on:click="loadSignUp">Registrarse</button>
         <button v-if="is_auth" v-on:click="loadHome"> Inicio </button>
         <button v-if="is_auth" v-on:click="logOut">Cerrar Sesión</button>
         <button v-if="is_auth" v-on:click="loadAccount"> Cuenta </button>
         <button v-if="is_auth" v-on:click="createProduct"> Crear producto </button>
         <button v-if="!is_auth" v-on:click="createProduct"> Crear producto </button>
         <button v-if="is_auth" v-on:click="listProduct"> Listar producto </button>
-        <button v-if="!is_auth" v-on:click="listProduct"> Listar producto </button>
-      </nav>
-    </div>
+        <button v-if="!is_auth" v-on:click="listProduct"> Listar producto </button> -->
+        
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a v-if="!is_auth" v-on:click="loadLogIn" class="nav-link" href="#">Iniciar Sesión <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a v-if="!is_auth" v-on:click="loadSignUp" class="nav-link" href="#">Registrarse <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a v-if="is_auth" v-on:click="loadHome" class="nav-link" href="#">Inicio  <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a v-if="is_auth" v-on:click="logOut" class="nav-link" href="#">Cerrar Sesión  <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a v-if="is_auth" v-on:click="loadAccount" class="nav-link" href="#">Cuenta  <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a v-if="is_auth" v-on:click="createProduct" class="nav-link" href="#">Crear producto  <span class="sr-only">(current)</span></a>
+          </li>
+          
+          <li class="nav-item active">
+            <a v-if="is_auth" v-on:click="listProduct" class="nav-link" href="#">Listar productos  <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a v-if="!is_auth" v-on:click="listProduct" class="nav-link" href="#">Listar productos  <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </b-navbar>
+
 
     <div class="main-component">
       <router-view  
@@ -113,6 +145,7 @@ body {
   justify-content: center;
   min-height: 80vh;
 }
+
 .header {
   margin: 0%;
   padding: 0;
