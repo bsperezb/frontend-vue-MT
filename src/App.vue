@@ -65,16 +65,16 @@
     </div>
     -->
     <footer>
-      <div class="footer-content">
+      <div class="footer-content ">
         <h3>Misión TIC 2022</h3>
         <ul class="socials">
-         <li><p>Back-end <a href="https://github.com/bsperezb/Ecomerce_Rocket_team.git" target="blank_"><i class="fa fa-github"></i></a></p></li>
-         <li><p>Front-end <a href="https://github.com/bsperezb/frontend-vue-MT.git" target="blank_"><i class="fa fa-github"></i></a></p></li>
+         <li> <a href="https://github.com/bsperezb/Ecomerce_Rocket_team.git" target="blank_"><p>Back-end <i class="fa fa-github"></i></p></a></li>
+         <li> <a href="https://github.com/bsperezb/frontend-vue-MT.git" target="blank_"><p>Front-end <i class="fa fa-github"></i></p></a></li>
         
         </ul>
       </div>
       <div class="footer-bottom">
-        <p>copyright &copy;2020 codeOpacity. designed by <span>nethunt</span></p>
+        <p>copyright &copy;2021  designed by "Grupo 4"<span>  Equipo Rocket </span></p>
       </div>
     </footer>
 
@@ -110,10 +110,10 @@ export default {
       },
     verifyAuth: function() {
       this.is_auth = localStorage.getItem("isAuth") || false;
-      if (this.is_auth == false)
-        this.$router.push({ name: "logIn" });
-      else
-        this.$router.push({ name: "home" });
+      // if (this.is_auth == false)
+      //   this.$router.push({ name: "logIn" });
+      // else
+      //   this.$router.push({ name: "home" });
     },
     loadLogIn: function() {
       this.$router.push({ name: "logIn" });
@@ -207,6 +207,8 @@ footer{
     color: #fff;
 }
 .footer-content{
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -217,12 +219,13 @@ footer{
     font-size: 1.8rem;
     font-weight: 400;
     text-transform: capitalize;
-    line-height: 3rem;
+    line-height: 0;
+    text-align: center;    
 }
 .footer-content p{
     max-width: 500px;
-    margin: 10px auto;
-    line-height: 28px;
+    margin: 10px ;
+    /* line-height: 28px; */
     font-size: 14px;
 }
 .socials{
@@ -230,7 +233,10 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem 0 3rem 0;
+    margin: 10px 0;
+    padding-left: 5px;
+    text-align: center;
+
 }
 .socials li{
     margin: 0 10px;
@@ -250,8 +256,10 @@ footer{
 .footer-bottom{
     background: #000000;
     width: 100%;
-    padding: 20px 0;
+    padding: 2px 0;
     text-align: center;
+    justify-content: center;
+    display: flex
 }
 .footer-bottom p{
     font-size: 14px;

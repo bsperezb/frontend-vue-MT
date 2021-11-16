@@ -21,14 +21,15 @@
           <label for = "inputEmail4">Email</label>
           <input type="email" v-model="user.email" placeholder="Email" />
         </div>
-        <div class = "form-group col-md-6">    
-          <label for = "inputEmail4">Balance</label>
-          <input
-           type="number"
-            v-model="user.account.balance"
-            placeholder="Initial Balance"
-          />
-        </div>
+            <!-- <div class = "form-group col-md-6">    
+        <label for = "inputEmail4">Balance</label>
+        <input
+          type="number"
+          v-model="user.account.balance"
+          placeholder="Initial Balance"
+        />
+      </div> -->
+
       </div>
     </div>
     <div class="row justify-content-center">
@@ -107,7 +108,8 @@ box-shadow: 0 1px 30px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .signUp_user h2
 {
-color: #283747;
+/* color: #283747; */
+color: #057d81;
 }
 .signUp_user form
 {
