@@ -5,7 +5,7 @@
     <div class=" row col-md-6 justify-content-center">
       <h2>Registrar producto</h2>
     <!-- </div> -->
-	  <form v-on:submit.prevent="create_item">
+	  <form v-on:submit.prevent="update_item">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Nombre</label>
@@ -47,11 +47,11 @@
 </template>
 <script>
 import axios from "axios";
-// import { response } from 'express';
 export default {
-  name: "Form",
+  name: "Update",
   data: function() {
     return {
+	  id: this.$route.params.id,
       item: {
         name: "",
         state: "",
@@ -61,41 +61,70 @@ export default {
       },
     };
   },
+
   methods: {
+
     success: function() {
-      alert('success');
+      alert('Update was successful');
     },
+	
     error: function() {
-      alert('Please verify the item data');
+      alert('Please verufy the item data');
     },
-    create_item: function() {
+
+	redirect_list: function(){
+		this.$router.push({ name: 'list' })
+	},
+
+    traer_item: function() {
       let vue = this;
-      var data = vue.item;
+    //   var data = this.item;
+	  console.log( vue.id )
       var config = {
-        method: 'post',
-        url: 'https://bcend.herokuapp.com/products/products/',
+        method: 'get',
+        url: `https://bcend.herokuapp.com/products/products/${ vue.id }/`,
         headers: {'Content-Type': 'application/json'},
-        data : data
       };
-      console.log(vue.item)
       axios(config)
-        .then(function (response){
-          console.log(JSON.stringify(response.data));
-          console.log('enviado')
-        vue.success()
-          vue.item =  {
-          name: "",
-          state: "",
-          price: "",
-          description: "",
-          image: "",
-        };
-        })
-        .catch(function(error){
-          console.log(error);
-          vue.error()
-        });
+      .then(function (response){
+        vue.item.name = response.data.name;
+        vue.item.state = response.data.state;
+        vue.item.price = response.data.price;
+        vue.item.image = response.data.image;
+        vue.item.description = response.data.description;
+        // console.log(response.data);
+    })
+    .catch(function(error){
+      console.log(error);
+	  vue.error();
+    });
+    },
+
+    update_item: function() {
+      let vue = this;
+	  var config = {
+		  method: 'put',
+		  url: `https://bcend.herokuapp.com/products/products/${ vue.id }/`,
+          headers: {'Content-Type': 'application/json'},
+		  data: vue.item,
+	  };
+	  axios(config)
+	  .then(function(response){
+    //   console.log(JSON.stringify(response.data));
+      console.log('Actualizado')
+	  vue.redirect_list();
+      vue.success()
+	  })
+      .catch(function(error){
+      console.log(error);
+      vue.error()
+      });
     },
   },
+
+  mounted(){
+    this.traer_item();
+  },
+  
 };
 </script>

@@ -49,7 +49,7 @@
                             <button v-on:click="eliminar_item( arte )">Eliminar</button>
                         </div>
                         <div class="Butt_Edit">
-                            <button type="submit">Editar</button>
+                            <button v-on:click="editar_item( arte )" >Editar</button>
                         </div>
                     </td>
                     </tr>
@@ -67,9 +67,18 @@ export default {
   data: function() {
     return {
       items:[],
+      id: '',
     };
   },
   methods: {
+    
+	redirect_list: function(){
+		this.$refs.component.open = true;
+	},
+
+    editar_item: function(item) {
+      this.$router.push({ name: "update", params : { id: item.id} });
+    },
     traer_items: function() {
       let vue = this;
     //   var data = this.item;
@@ -81,7 +90,7 @@ export default {
       axios(config)
         .then(function (response){
           vue.items = response.data;
-          // console.log(vue.items)
+          console.log(vue.items)
         })
         .catch(function(error){
           console.log(error);
@@ -91,6 +100,7 @@ export default {
 
     // },
     eliminar_item: function(item){
+      let vue = this;
       console.log( item.id)
       var url = 'https://bcend.herokuapp.com/products/products/'+item.id+'/'
       console.log("esta es la url" +" "+ url)
@@ -101,8 +111,14 @@ export default {
       };
       axios(config)
       .then(function(response){
-        console.log(response)
-        alert(item.name + " " +"eliminada")
+        console.log(response);
+        alert(item.name + " " +"eliminada");
+        const filtersList = vue.items.filter(element => element !== item)
+        vue.items =filtersList
+        // otra forma para elimiar elemento con el index
+        // let index = vue.items.findIndex(x => x.id === item.id)
+        // this.itmes.splice(index, 1)
+        vue.redirect_list();
       })
         .catch(function(error){
           console.log(error);

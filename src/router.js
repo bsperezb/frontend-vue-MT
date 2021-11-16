@@ -6,6 +6,7 @@ import Home from './components/Home.vue'
 import Account from './components/Account.vue'
 import Form from './components/Form.vue'
 import List from './components/List.vue'
+import Update from './components/Update.vue'
 
 const routes = [
   {
@@ -43,7 +44,12 @@ const routes = [
     path: '/product/list',
     name: "list",
     component: List,
-  }
+  },
+  {
+  path: '/product/update/:id',
+  name: "update",
+  component: Update,
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),
