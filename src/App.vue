@@ -107,13 +107,11 @@ export default {
       localStorage.clear();
       alert("Sesión Cerrada");
       this.verifyAuth();
+      this.router.push({ name: "list"})
+      localStorage.setItem("isAuth", false);
       },
     verifyAuth: function() {
       this.is_auth = localStorage.getItem("isAuth") || false;
-      // if (this.is_auth == false)
-      //   this.$router.push({ name: "logIn" });
-      // else
-      //   this.$router.push({ name: "home" });
     },
     loadLogIn: function() {
       this.$router.push({ name: "logIn" });
@@ -128,8 +126,11 @@ export default {
       localStorage.setItem("token_refresh", data.token_refresh);
       alert("Autenticación Exitosa");
       this.verifyAuth();
+      this.$router.push({ name: "list"})
     },
-    completedSignUp: function(data) {},
+    completedSignUp: function(data) {
+      this.$router.push({ name: "logIn"})
+    },
   },
   created: function() {
     this.verifyAuth();

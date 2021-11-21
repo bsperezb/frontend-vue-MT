@@ -9,11 +9,11 @@ import List from './components/List.vue'
 import Update from './components/Update.vue'
 
 const routes = [
-  {
-    path: "/",
-    name: "root",
-    component: App,
-  },
+  // {
+  //   path: "/",
+  //   name: "root",
+  //   component: App,
+  // },
   {
     path: "/user/logIn",
     name: "logIn",
@@ -41,7 +41,7 @@ const routes = [
   component: Form,
   },
   {
-    path: '/product/list',
+    path: '/',
     name: "list",
     component: List,
   },
