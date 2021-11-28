@@ -18,23 +18,17 @@
         <button v-if="is_auth" v-on:click="listProduct"> Listar producto </button>
         <button v-if="!is_auth" v-on:click="listProduct"> Listar producto </button> -->
         
-        <div class="collapse navbar-collapse" id="navbarsExample04">
+        <div class="collapse navbar-collapse d-flex space-around" id="navbarsExample04">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a v-if="!is_auth" v-on:click="loadLogIn" class="nav-link" href="#">Iniciar Sesión <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a v-if="!is_auth" v-on:click="loadSignUp" class="nav-link" href="#">Registrarse <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
+          <!-- <li class="nav-item active">
             <a v-if="is_auth" v-on:click="loadHome" class="nav-link" href="#">Inicio  <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
+          </li> -->
+          <!-- <li class="nav-item active">
             <a v-if="is_auth" v-on:click="logOut" class="nav-link" href="#">Cerrar Sesión  <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
+          </li> -->
+          <!-- <li class="nav-item active">
             <a v-if="is_auth" v-on:click="loadAccount" class="nav-link" href="#">Cuenta  <span class="sr-only">(current)</span></a>
-          </li>
+          </li> -->
           <li class="nav-item active">
             <a v-if="is_auth" v-on:click="createProduct" class="nav-link" href="#">Crear producto  <span class="sr-only">(current)</span></a>
           </li>
@@ -46,6 +40,18 @@
             <a v-if="!is_auth" v-on:click="listProduct" class="nav-link" href="#">Listar productos  <span class="sr-only">(current)</span></a>
           </li>
         </ul>
+        <ul class="navbar-nav  d-flex justify-content-end">
+          <li class="nav-item active">
+            <a v-if="!is_auth" v-on:click="loadLogIn" class="nav-link " href="#">Iniciar Sesión <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a v-if="!is_auth" v-on:click="loadSignUp" class="nav-link" href="#">Registrarse <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a v-if="is_auth" v-on:click="logOut" class="nav-link" href="#">Cerrar Sesión  <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+
       </div>
     </b-navbar>
 
@@ -107,8 +113,9 @@ export default {
       localStorage.clear();
       alert("Sesión Cerrada");
       this.verifyAuth();
-      this.router.push({ name: "list"})
+      // this.router.push({ name: "list"})
       localStorage.setItem("isAuth", false);
+      this.$router.push({ name: "logIn" });
       },
     verifyAuth: function() {
       this.is_auth = localStorage.getItem("isAuth") || false;
